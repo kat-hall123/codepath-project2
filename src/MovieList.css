@@ -5,3 +5,7 @@
     gap: 20px;
     justify-content: center;
 }
+
+.load-more-button {
+    margin: 1em;
+}
