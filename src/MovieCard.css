@@ -1,0 +1,13 @@
+.movie-card {
+    padding: 1em;
+    width: 200px;
+    background-color: rgb(220, 217, 217);
+    border-radius: 8px;
+    box-shadow: 5px 5px 8px rgba(64, 64, 64, 0.305);
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
