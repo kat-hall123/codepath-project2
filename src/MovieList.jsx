@@ -10,21 +10,31 @@ function MovieList() {
     const [query, setQuery] = useState("");
 
     function handleSearch(query) {
+        setQuery(query);
         setMovies([]);
         setPage(1);
         setHasMore(true);
-        setQuery(query);
+        fetchData(1);
+    }
+
+    function handleClearSearch() {
+        setQuery("");
+        setMovies([]);
+        setPage(1);
+        setHasMore(true);  
     }
 
     function handleLoadMore() {
         return setPage((prevPage) => prevPage + 1);
     }
 
+    const apiKey = import.meta.env.VITE_API_KEY;
+
     const fetchData = async (pageNum) => {
         try {
-            const apiKey = import.meta.env.VITE_API_KEY;
             //if query exists use search endpoint, otherwise show now playing
-            const url = query ? `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(query)}&page=${pageNum}`
+            const url = query ? 
+                            `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(query)}&page=${pageNum}`
                             : `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=${pageNum}`;
 
             const response = await fetch(url);
@@ -47,24 +57,19 @@ function MovieList() {
     }, []);
 
     useEffect(() => {
-        //default is page 1 so "> 1" prevents re-fetching page 1
         if(page > 1) {
             fetchData(page);
         }
     }, [page]);
 
     useEffect(() => {
-        if(query) {
-            //ensures fetching for matching query starts on page 1
-            fetchData(1);
-        }
+        fetchData(1);
     }, [query]);
 
     return(
         <div className="movie-list-container">
             <header>
-                <h1>{query ? `Search Results for "${query}"` : "Now Playing"}</h1>
-                <SearchForm onSearch={handleSearch} />
+                <SearchForm onSearch={handleSearch} onClear={handleClearSearch} query={query} onSearchInputChange={setQuery} />
             </header>
 
             <main className="movie-list">
