@@ -1,0 +1,44 @@
+.modal-overlay {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+
+    box-shadow: 0 0 20px black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 30vw;       
+    height: 80vh; 
+    overflow: auto;
+}
+
+.modal-img {
+    margin: 1rem;
+    width: 90%;       
+    height: auto;
+}
+
+.close-button {
+    height: 1.5em;
+    width: 4em;
+    font-size: 1em;
+    background: black;
+    cursor: pointer;
+}
+

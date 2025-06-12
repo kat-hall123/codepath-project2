@@ -1,6 +1,9 @@
 .movie-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 1em;
-    width: 200px;
+    width: 12rem;
     background-color: rgb(220, 217, 217);
     border-radius: 8px;
     box-shadow: 5px 5px 8px rgba(64, 64, 64, 0.305);
@@ -10,4 +13,51 @@
     width: 100%;
     height: auto;
     border-radius: 8px;
+}
+
+.movie-card:hover {
+    cursor: pointer;
+    background-color: rgb(229, 229, 229);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0.5em;
+}
+
+.favorite-button {
+    background: none;
+    border: none;
+}
+
+.favorite-button:hover {
+    background:none;
+}
+
+.heart.favorited {
+    color:red;
+}
+
+.heart.not-favorited {
+    color:grey;
+}
+
+.watched-button {
+    background: none;
+    border: none;
+    font-size:1.25em;
+}
+
+.watched-button:hover {
+    background:none;
+}
+
+.check.filled {
+    color:rgb(0, 219, 0);
+}
+
+.check.unfilled {
+    color:grey;
 }

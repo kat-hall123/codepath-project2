@@ -26,3 +26,22 @@
     flex-direction: column;
   }
 }
+
+img {
+  height: 5rem;
+  width:auto;
+}
+
+#logo-name {
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items:center;
+  padding:1em;
+  background-color: rgb(211, 211, 211);
+}
+
+footer {
+  padding:1em;
+  background-color: rgb(211, 211, 211);
+}
