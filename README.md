@@ -107,23 +107,20 @@ Deployed Application (**required**): [Flixster Deployed Site](https://flixster-g
       <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/79802502d43f4f509fddb338c509ea02-8efab822eb3edc15-full-play.gif">
     </a>
 </div>
-<div style="position: relative; padding-bottom: 57.50798722044729%; height: 0;">
-  <iframe src="https://www.loom.com/embed/79802502d43f4f509fddb338c509ea02?sid=52e635f6-a058-4026-83ee-b71b3c1a45e6" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-</div>
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+Yes, the labs were pretty similar to the necessary functions in Project 2, so I was able to reference back to the lab when I was unsure of a certain step. Specifically, Lab 4 showed me how to implement components, lift state up, and fetch data using API's--all of which I needed to do for the project. However, I had trouble implementing the search feature as there were numerous props and parent/child components, so it was easy to get the logic messed up. Additionally, there were issues of avoiding duplicate keys which I had not encountered with the labs. The solution was to attach the index of the element to the key though. 
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+If I had more time, I would definitely try to style the website better because the formatting of the search bar/movie list gets somewhat disoriented when clicking on the favorites or watched list tabs. Additionally, I would try to figure out how to get rid of the Load More button when there are not any movies displayed on the screen. Also, after finishing the project, it's clear that a lot of the components were placed into the MovieList file, so re-organizing the files and components could be beneficial with readability.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+Overall, my final result for the project was well and all the functionalities worked as expected. A small thing is that there seems to be duplicate of movies on the first load, which I am not sure is an issue on my end or the API (as other students have a similar issue). Other than that, I enjoyed looking at the styling of my peer's project, so I may try to implement some of there unique features of CSS next time!
 
 ### Shout out
 
