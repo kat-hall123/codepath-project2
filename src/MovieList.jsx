@@ -60,13 +60,19 @@ function MovieList() {
     const handleMovieClick = async(movieId) => {
         const apiKey = import.meta.env.VITE_API_KEY;
         try {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`);
-            if (!response.ok) {
-                throw new Error("Failed to fetch movie details");
+            const detailsResponse = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`);
+            const videoResponse = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}&language=en-US`);
+            
+            if (!detailsResponse.ok || !videoResponse.ok) {
+                throw new Error("Failed to fetch movie data");
             }
 
-            const data = await response.json();
-            setMovieDetails(data);
+            const detailsData = await detailsResponse.json();
+            const videoData = await videoResponse.json();
+
+            const trailer = videoData.results.find(v => v.type === "Trailer" && v.site === "YouTube");
+
+            setMovieDetails({ ...detailsData, trailerKey: trailer ? trailer.key : undefined });
             setSelectedMovie(movieId);
         } catch(error){
             console.error(error);
@@ -109,8 +115,10 @@ function MovieList() {
         if(selected === "title") {
             sorted.sort((a, b) => a.title.localeCompare(b.title));
         } else if(selected === "release_date") {
+            //most recent first
             sorted.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
         } else if(selected === "rating") {
+            //highest rating first
             sorted.sort((a, b) => b.vote_average - a.vote_average);
         }
 
@@ -118,7 +126,7 @@ function MovieList() {
     }
 
     function toggleFavorite(movie) {
-        //if movie already favorited, remove it; otherise, add to favorite list
+        //if movie already in favorites, remove it when toggled again; otherise, add to favorite list
         if (favorites.some(f => f.id === movie.id)) {
             setFavorites(favorites.filter(f => f.id !== movie.id));
         } else {
@@ -146,12 +154,12 @@ function MovieList() {
                 </aside>
 
                 <div className="main-content">
-                    <header>
+                    <header className="search-sort">
                         <SearchForm onSearch={handleSearch} onClear={handleClearSearch} query={query} onSearchInputChange={setQuery} />
                     
                         <div className="sort-container">
                             <label htmlFor="sort-select">Sort by: </label>
-                            <select id="sort-select" value={sortOption} onChange={handleSortChange}>
+                            <select className="dropdown" id="sort-select" value={sortOption} onChange={handleSortChange}>
                                 <option value="none">None</option>
                                 <option value="title">Title (A-Z)</option>
                                 <option value="release_date">Release Date (Newest First)</option>
@@ -221,10 +229,9 @@ function MovieList() {
 
                     {selectedMovie && movieDetails && (
                         <Modal movie={movieDetails} onClose={() => setSelectedMovie(null)} />
-                    )}
+                    )} 
                 </div>
             </div>
-            
         </div>
     );
 };

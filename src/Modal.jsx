@@ -5,7 +5,6 @@ function Modal({movie, onClose}) {
     return(
         <div className="modal-overlay" onClick={onClose}>
             <div className="modal-content" onClick={(event) => event.stopPropagation()}>
-                
                 <div className="modal-info">
                     <h2>{movie.title}</h2>
                     <img className="modal-img"
@@ -18,6 +17,17 @@ function Modal({movie, onClose}) {
                     <p><strong>Genres</strong>: {movie.genres.map(genre => genre.name).join(", ")}</p>
                     <p><strong>Overview</strong>: {movie.overview}</p>
                 </div>
+
+                {movie.trailerKey && (
+                    <div className="trailer-container">
+                        <p><strong>Trailer:</strong></p>
+                        <iframe
+                            src={`https://www.youtube.com/embed/${movie.trailerKey}`}
+                            title="Movie Trailer"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
+                )}
                 
                 <button className="close-button" onClick={onClose}>Close</button>
             </div>

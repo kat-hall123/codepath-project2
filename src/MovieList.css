@@ -11,14 +11,19 @@
     margin: 1rem;
 }
 
-header {
+header.search-sort {
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
     align-items: baseline;
 }
 
 .sort-container {
     margin: 1rem;
+    color: white;
+}
+
+.dropdown {
+    height: 1.7rem;
 }
 
 .main-content {
@@ -29,14 +34,14 @@ header {
 }
 
 .sidebar {
-    background-color: rgb(192, 192, 192);
-    padding: 1em;
+    background-color: #1f222a;
+    padding: 1rem;
 }
 .sidebar-options {
     display: flex;
     flex-direction: column;
-    gap: 1em;
-    width: 10em;
+    gap: 1.5rem;
+    width: 10rem;
 }
 
 .layout {

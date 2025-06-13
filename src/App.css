@@ -3,33 +3,18 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #282c34; /* dark grey, blue tint */
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
   color: white;
-  padding: 20px;
-}
-
-@media (max-width: 600px) {
-  .movie-card {
-    width: 100%;
-  }
-
-  .search-bar {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .search-bar form {
-    flex-direction: column;
-  }
+  padding: 1.5rem;
 }
 
 img {
   height: 5rem;
-  width:auto;
+  width: auto;
 }
 
 #logo-name {
@@ -37,11 +22,16 @@ img {
   flex-direction:row;
   justify-content: center;
   align-items:center;
-  padding:1em;
-  background-color: rgb(211, 211, 211);
+  padding: 1rem;
+  background-color: #1b1d24; /* dark blue-grey */
+  color: white;
 }
 
 footer {
-  padding:1em;
-  background-color: rgb(211, 211, 211);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 1rem;
+  background-color: #1b1d24; /* dark blue-grey */
+  color: white;
 }

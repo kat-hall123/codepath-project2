@@ -1,19 +1,21 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #282c34; /* dark grey, blue tint */
 }
 
 button {
-  background-color: #282c34;
+  background: none;
+  border: none;
   color: white;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
-  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #777;
+  background-color: #777; /* medium grey */
   color: white;
+  border-radius: 2rem;
+  box-shadow: 0 0 1rem white;
 }

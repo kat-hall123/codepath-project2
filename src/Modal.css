@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.666); /* transparent black */
     
     display: flex;
     align-items: center;
@@ -14,9 +14,9 @@
 .modal-content {
     background: white;
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 0.7rem;
 
-    box-shadow: 0 0 20px black;
+    box-shadow: 0 0 1.3rem white;
 
     display: flex;
     flex-direction: column;
@@ -35,10 +35,16 @@
 }
 
 .close-button {
+    margin: 2rem 0 0 0;
     height: 1.5em;
     width: 4em;
-    font-size: 1em;
     background: black;
+    border-radius: 2rem;
+    font-size: 1em;
     cursor: pointer;
 }
 
+iframe {
+    width: 100%;
+    height: auto;
+}
